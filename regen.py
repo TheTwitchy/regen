@@ -45,19 +45,19 @@ def print_debug(*args):
         sys.stderr.write(try_color(" ".join(map(str,args)) + "\n", "blue"))
 #Handles early quitters.
 def signal_handler(signal, frame):
-    print ""
+    print ("")
     quit(0)
 
 #Because.
 def print_header():
-    print "  _ __ ___  __ _  ___ _ __  "
-    print " | '__/ _ \/ _` |/ _ \ '_ \ "
-    print " | | |  __/ (_| |  __/ | | |"
-    print " |_|  \___|\__, |\___|_| |_|"
-    print "            __/ |           "
-    print "           |___/            "
-    print "              version " + VERSION
-    print ""
+    print ("  _ __ ___  __ _  ___ _ __  ")
+    print (" | '__/ _ \/ _` |/ _ \ '_ \ ")
+    print (" | | |  __/ (_| |  __/ | | |")
+    print (" |_|  \___|\__, |\___|_| |_|")
+    print ("            __/ |           ")
+    print ("           |___/            ")
+    print ("              version " + VERSION)
+    print ("")
 
 # Argument parsing which outputs a dictionary.
 def parseArgs():
@@ -127,7 +127,7 @@ def main():
         test_str = gen_new_test_str(var_length)
         if re.match(var_regex, test_str):
             num_found = num_found + 1
-            print test_str
+            print (test_str)
     if not var_quiet:
         print_info("Performed %d tests." % num_tests)
 
