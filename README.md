@@ -1,10 +1,12 @@
 # regen
 The Regular Expression Generator. Give a regex sequence, and get a randomly generated listing of strings that match the sequence.
 
+Originally used to get a "code smell" for any validators based on regular expressions, as this will show ANY matches, especially if the match is not in a format as originally intended. For example, an email validator such as ```^[\w\-]+@gmail.com$``` may be weak as it would allow ```anything@gmail'com```. In theory, one of the randomly generated matches from regen may alert the user to this fact. Obviously this tool is not perfect, relies heavily on user judgement, and manual review is likely to be much faster and more accurate, but it can be run quickly and in the background while doing other work. Also note that there is not "smart" generation of matches, this is purely brute forcing random strings, and therefore may take a while to get matches, especially on complex regular expressions.
+
 ## Examples
 ### Help
 ```
-root@kali ~/P/regen# ./regen.py --help
+root@kali:~# regen.py --help
 usage: regen [-h] [-v] [-q] [-n NUM] [-l LENGTH] [-t TEST] regex
 
 Regular Expression Generator
@@ -21,11 +23,11 @@ optional arguments:
                         a probable maximum length
   -t TEST, --test TEST  a known matching test string to confirm regex
 
-Written by TheTwitchy. Source available at gitlab.com/TheTwitchy/regen
+Written by TheTwitchy. Source available at github.com/TheTwitchy/regen
 ```
 ### Base Run
 ```
-root@kali ~/P/regen# ./regen.py "^[a-z]*\$"
+root@kali:~# regen.py "^[a-z]*\$"
   _ __ ___  __ _  ___ _ __  
  | '__/ _ \/ _` |/ _ \ '_ \
  | | |  __/ (_| |  __/ | | |
@@ -49,7 +51,7 @@ regen: info: Performed 676 tests.
 ```
 ### Complex Run
 ```
-root@kali ~/P/regen# ./regen.py -n 5 -l 10 -t 'abc' '^[a-z]{1,4}$'
+root@kali:~# regen.py -n 5 -l 10 -t 'abc' '^[a-z]{1,4}$'
   _ __ ___  __ _  ___ _ __  
  | '__/ _ \/ _` |/ _ \ '_ \
  | | |  __/ (_| |  __/ | | |
